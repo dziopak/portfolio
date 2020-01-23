@@ -1,0 +1,9 @@
+{
+    "title": "Portfolio",
+    "title_home": "Najnowsze projekty",
+    "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam. voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur. Magni dolores eos qui ratione voluptatem sequi nesciunt.",
+    "content_home": "O umiejętnościach developera świadczą przede wszystkim wykonane przez niego projekty. Dlatego warto poświęcić chwilkę na obejrzenie moich ostatnich realizacji i samemu sprawdzić, co mam do zaoferowania.",
+    "button": "Zobacz więcej",
+    "route": "portfolio",
+    "noItems": "Brak projektów dla tej kategorii."
+}

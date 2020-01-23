@@ -1,0 +1,27 @@
+.contact-bar {
+    padding: 100px 0px;
+    
+    &__title {
+        font-size: 14px;
+    }
+
+    .col:first-child {
+        padding-right: 40px;
+    }
+
+    .col:last-child {
+        padding-left: 40px;
+    }
+}
+
+@media (max-width: 840px) {
+    .contact-bar .col {
+        &:first-child {
+            padding: 0;
+        }
+        &:last-child {
+            padding: 0;
+            margin-bottom: 0;
+        }
+    }
+}

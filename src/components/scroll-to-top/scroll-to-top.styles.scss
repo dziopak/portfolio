@@ -1,0 +1,17 @@
+.scroll-to-top {
+    padding: 4px 10px;
+    width: 40px;
+    height: 40px;
+    background: #321b4d;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 40px;
+    right: 80px;
+    cursor: pointer;
+    transition: opacity 0.6s linear;
+    opacity: 0;
+    z-index: 999;
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+}

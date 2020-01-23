@@ -1,0 +1,13 @@
+.blog-entry-list {
+    display: flex;
+
+    &__intro {
+        text-align-last: center;
+    }
+
+
+    &__main {
+        padding: 0 40px;
+        flex-basis: 100%;
+    }
+}

@@ -1,0 +1,32 @@
+.blog-sidebar {
+    flex-basis: 400px;
+
+    &__nav {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        background: #fafafa;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+
+
+        &-item {
+            padding: 15px 40px;
+            text-transform: uppercase;
+            font-size: 12px;
+            border-bottom: 1px solid #e5e5e5;
+
+            &:last-child {
+                border-bottom: 0px;
+            }
+
+            a {
+                color: #321b4d;
+            }
+
+            &:hover a, &--active a {
+                color: #dc5271;
+            }
+        }
+    }
+}

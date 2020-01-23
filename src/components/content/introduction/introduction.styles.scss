@@ -1,0 +1,45 @@
+.introduction {
+    position: relative;
+    
+    .col {
+        padding: 0 40px;
+    }
+
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 40px;
+        right: 0px;
+        transform: translateY(-50%);
+    }
+
+    &__text {
+        line-height: 36px;
+    }
+
+    &__img {
+        max-width: 90%;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 840px) {
+    .introduction {
+        text-align-last: center; 
+
+        &__content {
+            position: static;
+            transform: none;
+        }
+    
+        &__img {
+            max-width: 400px;
+        }
+        
+        .col {
+            padding: 0;
+        }
+    }
+}

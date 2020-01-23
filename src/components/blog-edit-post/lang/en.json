@@ -1,0 +1,12 @@
+{
+    "title": "Edit post",
+    
+    "title_label": "Title:",
+    "title_placeholder": "Entry title...",
+    
+    "url_label": "URL:",
+    "url_placeholder": "Entry URL...",
+    
+    "excerpt_label": "Excerpt:",
+    "exceprt_placeholder": "Entry excerpt..."
+}

@@ -1,0 +1,32 @@
+.about-page {
+    &__title {
+        &--centered {
+            text-align: center;
+        }
+    }
+
+    &__text {
+        &--centered {
+            text-align-last: center;
+        }
+
+        &--small {
+            font-size: 14px;
+            line-height: 32px;
+        }
+
+        &--short {
+            max-width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &__col {
+        padding: 20px 40px;
+
+        &--no-padding {
+            padding: 0;
+        }
+    }
+}

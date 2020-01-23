@@ -1,0 +1,14 @@
+.description-box {
+    background-color: #f2f2f2;
+    padding: 80px 40px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+
+    &__title {
+        text-align: center;
+    }
+
+    .button {
+        margin-top: 40px;
+    }
+}

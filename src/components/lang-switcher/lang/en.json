@@ -1,0 +1,10 @@
+{
+    "pl": {
+        "name": "Polish",
+        "icon": "pl.jpg"
+    },
+    "en": {
+        "name": "English",
+        "icon": "en.jpg"
+    }
+}

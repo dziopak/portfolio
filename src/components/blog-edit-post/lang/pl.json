@@ -1,0 +1,12 @@
+{
+    "title": "Edytuj post",
+
+    "title_label": "Tytuł:",
+    "title_placeholder": "Tytuł wpisu...",
+    
+    "url_label": "URL:",
+    "url_placeholder": "Adres URL...",
+    
+    "excerpt_label": "Skrót:",
+    "exceprt_placeholder": "Skrót wpisu..."
+}

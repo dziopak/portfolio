@@ -1,0 +1,8 @@
+{
+    "howItStarted_title": "Jak to się zaczęło?",
+    "howItStarted_text": "Moje zainteresowania związane z technologią zaczęły przejawiać się już w najmłodszych latach. Jak każde dziecko miałem obsesję na punkcie gier komputerowych, co bardzo szybko przerodziło się w chęć stworzenia własnego, małego świata. Swoją przygodę z programowaniem zacząłem od darmowych silników do gier MMO 2D pisanych w Visual Basic 6, dzięki którym nauczyłem się podstaw algorytmiki, programowania i funkcjonowania systemów baz danych. Po kilku latach moja pasja do tworzenia gier przerodziła się w tworzenie stron internetowych i chwilę później dostałem swoją pierwszą pracę w IT.",
+    "mySkills_title": "Co potrafię?",
+    "mySkills_text": "Moje umiejętności web developerskie nie ograniczają się wyłącznie do HTML'a i CSS. Równie dobrze radzę sobie z językami PHP i JavaScript, preprocesorami LESS i SASS a także frameworkami jak Laravel, React czy NodeJS. W mojej pracy przydaje się również znajomość innych technologii i narzędzi. Bardzo pomocna jest również dobra znajomość systemów baz danych jak MySQL i PostgreSQL, oraz baz NoSQL jak Firebase czy MongoDB.",
+    "myInterests_title": "Moje zainteresowania",
+    "myInterests_text": "Poza programowaniem i grafiką interesuje mnie także terrarystyka. Na chwilę obecną jestem opiekunem dla czterech węży: dwóch zbożowych i dwóch pytonów królewskich. Interesuję się także tańcem ulicznym i akrobatyką. Więcej informacji na temat moich pupili i zainteresowań znajdziesz na moim blogu."
+}

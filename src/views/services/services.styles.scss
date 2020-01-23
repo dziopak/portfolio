@@ -1,0 +1,16 @@
+.services-page {
+    &__intro {
+        text-align-last: center;
+
+        &-img {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__text {
+        &--short {
+            max-width: 60%;
+            margin: 0 auto;
+        }
+    }
+}

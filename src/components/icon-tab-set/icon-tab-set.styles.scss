@@ -1,0 +1,27 @@
+.icon-tab-set {
+    margin-top: 40px;
+    overflow: hidden;
+
+    &__tab-container {
+        margin-right: 40px;
+        width: calc(25% - 30px);
+        float: left;
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}
+
+
+@media (max-width: 800px) {
+    .icon-tab-set {
+        &__tab-container {
+            width: calc(50% - 20px);
+        
+            &:nth-child(even) {
+                margin-right: 0px;
+            }
+        }
+    }
+}
