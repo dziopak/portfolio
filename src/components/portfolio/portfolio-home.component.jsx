@@ -63,7 +63,7 @@ const PortfolioHome = ({lang, lang_tag}) => {
                 items.length > 0 ? <PortfolioPreview items={items.slice(0, 4)} />
                 : <p>{lang.noItems}</p>
             }
-            <Button url={lang.route} text={lang.button} modifier="purple" />
+            <Button url={`${lang_tag}/${lang.route}`} text={lang.button} modifier="purple" />
             </div>
         </div>
     );

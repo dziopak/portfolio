@@ -30,7 +30,7 @@
         color: #da627d;
         margin-bottom: 10px;
         margin-top: 0px;
-        font-weight: 800;
+        font-weight: 200;
         font-size: 18px;
     }
 
@@ -53,7 +53,6 @@
 
         &-container {
             position: absolute;
-            height: 100%;
             top: 0;
             left: 0;
             right: 0;
@@ -62,6 +61,7 @@
             background-color: #321b4d;
             transition: opacity 0.8s linear, top 0.4s linear;
             overflow: hidden;
+            padding-bottom: 60%;
         }
     }
 
@@ -79,7 +79,7 @@
         overflow: hidden;
         position: absolute;
         padding-bottom: 60%;
-        top: 2.5%;
+        top: calc(4% - 2px);
         left: 2%;
         right: 2%;
     }
