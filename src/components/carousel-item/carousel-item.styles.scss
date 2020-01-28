@@ -1,0 +1,40 @@
+.carousel-item {
+    min-height: 200px;
+    margin: 0 20px;
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    padding: 1px;
+    
+    &__img {
+        max-height: 180px;
+        margin: 0 auto; 
+        
+        &-container {
+            padding: 20px;
+            padding-bottom: 0px;
+            background: #fff;
+            height: 200px;
+        }
+    }
+
+    &__content {
+        padding: 0 25px 20px;
+        text-align: center;
+        text-align-last: center;
+
+        & .button, & .button.button--purple {
+            margin-top: 0px;
+        }
+    }
+
+    &__text {
+        font-size: 12px;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        font-size: 14px;
+    }
+}

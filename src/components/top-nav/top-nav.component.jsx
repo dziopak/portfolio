@@ -33,10 +33,6 @@ const TopNav = ({lang, lang_tag, history, match}) => {
     }
     
     useEffect(() => {
-        // const active = document.querySelector(".top-nav__menu-item--active"); 
-        // const underline = document.querySelector(".top-nav__underline"); 
-        
-        
         navUnderline();
     }, [match]);
     
@@ -44,8 +40,10 @@ const TopNav = ({lang, lang_tag, history, match}) => {
         history.push(`/${lang_tag}/`);
     }
 
-    const scrollTo = () => {
-        // document.querySelector(".page").scrollIntoView();
+    const toggleNav = () => {
+        // const isActive = document.querySelector(".top-nav__menu").classList.
+        document.querySelector(".top-nav__menu").classList.toggle("top-nav__menu--mobile");
+        document.querySelector(".top-nav__mobile").classList.toggle("top-nav__mobile--active");
     }
 
     lang = lang[lang_tag];
@@ -59,12 +57,12 @@ const TopNav = ({lang, lang_tag, history, match}) => {
                 </div>
                 {lang.home ?
                 <ul className="top-nav__menu">
-                    <NavItem url={`/${lang_tag}`} mainClass="top-nav__menu-item" text={lang.home} handleClick={scrollTo} />
-                    <NavItem url={`/${lang_tag}/${lang.routes.aboutMe}`} mainClass="top-nav__menu-item" text={lang.aboutMe} handleClick={scrollTo} />
-                    <NavItem url={`/${lang_tag}/${lang.routes.services}`} mainClass="top-nav__menu-item" text={lang.services} handleClick={scrollTo} />
-                    <NavItem url={`/${lang_tag}/${lang.routes.portfolio}`} mainClass="top-nav__menu-item" text={lang.portfolio} handleClick={scrollTo} />
-                    <NavItem url={`/${lang_tag}/${lang.routes.blog}`} mainClass="top-nav__menu-item" text={lang.blog} handleClick={scrollTo} />
-                    <li onClick={scrollTo} className="top-nav__menu-item">
+                    <NavItem url={`/${lang_tag}`} mainClass="top-nav__menu-item" text={lang.home} />
+                    <NavItem url={`/${lang_tag}/${lang.routes.aboutMe}`} mainClass="top-nav__menu-item" text={lang.aboutMe} />
+                    <NavItem url={`/${lang_tag}/${lang.routes.services}`} mainClass="top-nav__menu-item" text={lang.services} />
+                    <NavItem url={`/${lang_tag}/${lang.routes.portfolio}`} mainClass="top-nav__menu-item" text={lang.portfolio} />
+                    <NavItem url={`/${lang_tag}/${lang.routes.blog}`} mainClass="top-nav__menu-item" text={lang.blog} />
+                    <li className="top-nav__menu-item">
                         <Link to="/">{lang.contact}</Link>
                     </li>
                     <li className="top-nav__lang-switcher">
@@ -74,6 +72,7 @@ const TopNav = ({lang, lang_tag, history, match}) => {
                 : ""
                 }
                 <div className="top-nav__underline"></div>
+                <div onClick={toggleNav} className="top-nav__mobile"></div>
             </div>
         </div>
     );

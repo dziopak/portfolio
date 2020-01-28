@@ -6,7 +6,6 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s linear, opacity 0.5s linear;
-    margin-bottom: 40px;
     
     .icon-tab-set__tab-container & {
         width: 100%;
@@ -14,12 +13,6 @@
     }
 
     &:hover, &--active {
-        // background: #321b4d;
-
-        // .icon-tab__title {
-        //     color: #fff;
-        // }
-
         .icon-tab__icon {
             filter: none;
             opacity: 1;
@@ -50,9 +43,10 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1080px) {
     .icon-tab {
         width: calc(50% - 20px);
+        margin-bottom: 40px;
 
         .icon-tab-set__tab-container & {
             width: 100%;

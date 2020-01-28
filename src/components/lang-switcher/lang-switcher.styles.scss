@@ -4,3 +4,12 @@
         margin-left: 10px;
     }
 }
+
+@media (max-width: 800px) {
+    .lang-switcher {
+        &__flag {
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+    }
+}

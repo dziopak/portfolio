@@ -4,7 +4,18 @@
     position: relative;
     width: 100%;
     overflow-x: hidden;
-    
+
+    .hero__slide {
+        visibility: hidden;
+        opacity: 0;
+        // transition: all 2s linear;
+        
+        &--active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
     &__content {
         position: absolute;
         left: 50%;
@@ -25,8 +36,7 @@
     }
 
     &__text {
-        font-size: 13px;
-        text-transform: uppercase;
+        font-size: 16px;
         text-align: justify;
         font-weight: 300;
         margin-bottom: 40px;
@@ -37,6 +47,7 @@
 
     &__img {
         height: calc(100vh - 70px);
+        max-width: unset;
         display: block;
         margin: 0 auto;
         position: absolute;
@@ -70,6 +81,9 @@
 }
 
 @media (max-width: 980px) {
+    .hero {
+        height: 100vh;
+    }
     .hero__img {
         display: none;
     }

@@ -4,6 +4,9 @@ import AboutMe from "../../components/about-me/about-me.component";
 import Button from "../../components/button/button.component";
 import ContentRow from "../../components/content/content-row.component";
 import useLang from "../../components/useLang/useLang.component";
+import Carousel from "../../components/carousel/carousel.component"
+import CarouselItem from "../../components/carousel-item/carousel-item.component";
+import DescriptionBox from "../../components/description-box/description-box.component";
 
 import MobileVector from "./../../assets/vectors/mobile.svg"
 import GoalsVector from "./../../assets/vectors/about-me-goals.svg";
@@ -23,19 +26,50 @@ const AboutMePage = ({match, history, lang, lang_tag}) => {
                     <p>{lang.howItStarted_text}</p>
                 </ContentRow>
 
-                <ContentRow contentSide="right" vector={GoalsVector} title={lang.mySkills_title}>
-                    <p>{lang.mySkills_text}</p>
-                    <Button modifier="purple" text="Portfolio" />
-                    <Button modifier="pink" text="Usługi" />
-                </ContentRow>
+                { lang.routes ? 
+                    <ContentRow contentSide="right" vector={GoalsVector} title={lang.mySkills_title}>
+                        <p>{lang.mySkills_text}</p>
+                        <Button url={`/${lang_tag}/${lang.routes.portfolio}`} modifier="purple" text="Portfolio" />
+                        <Button url={`/${lang_tag}/${lang.routes.services}`} modifier="pink" text="Usługi" />
+                    </ContentRow>
+                : "" }
 
-                <ContentRow vector={SnakeVector} title={lang.myInterests_title}>
-                    <p>{lang.myInterests_text}</p>
-                    <Button modifier="purple" text="Blog" />
-                </ContentRow>                
-            </div>
+            <DescriptionBox>
+                <Carousel>
+                    <CarouselItem
+                        img={'https://udemy-certificate.s3.amazonaws.com/image/UC-JPP5A9UP.jpg?l=null'}
+                        title="Advanced JS & CSS"
+                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        />
+                    <CarouselItem
+                        img={'https://udemy-certificate.s3.amazonaws.com/image/UC-FMLZGMX3.jpg?l=null'}
+                        title="React / Redux"
+                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        />
+                    <CarouselItem
+                        img={"https://udemy-certificate.s3.amazonaws.com/image/UC-Y7BES3OG.jpg?l=en_US"}
+                        title="Web Design / Photoshop"
+                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        />
+                    {/* <CarouselItem title="freecodecamp" img={"https://lh4.googleusercontent.com/Bc5gTV999iwsXcvW7diwABoNUu3CfU5KlF7PBEyGkNbx8XX2zYN3xKLEvsnUwg7UyNWGK3-TcrTeFvJxwoA_=w1366-h576-rw"} /> */}
+                    <CarouselItem
+                        img={"https://lh3.google.com/u/0/d/1qYNAC6ELmgY6IzsSCeqabDW6rQVF0Tl5=w1366-h625-iv1"}
+                        title="Responsive Web Design"
+                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        />
+                </Carousel>
+            </DescriptionBox>
+
+                { lang.routes ? 
+                    <ContentRow vector={SnakeVector} title={lang.myInterests_title}>
+                        <p>{lang.myInterests_text}</p>
+                        <Button url={`/${lang_tag}/${lang.routes.blog}`} modifier="purple" text="Blog" />
+                    </ContentRow>
+                : "" }
+            
         </div>
+    </div>
     );
 }
 
-export default useLang(AboutMePage, "about", "views");
+export default useLang(AboutMePage, "about", "views", true);

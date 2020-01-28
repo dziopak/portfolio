@@ -18,3 +18,19 @@
         max-width: 85%;
     }
 }
+
+@media (max-width: 800px) {
+    .content-row {
+        display: block;
+        
+        &__container {
+            position: static;
+            transform: none;
+        }
+
+        &__img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
