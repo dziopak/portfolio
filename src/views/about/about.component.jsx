@@ -51,12 +51,16 @@ const AboutMePage = ({match, history, lang, lang_tag}) => {
                         title="Web Design / Photoshop"
                         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                         />
-                    {/* <CarouselItem title="freecodecamp" img={"https://lh4.googleusercontent.com/Bc5gTV999iwsXcvW7diwABoNUu3CfU5KlF7PBEyGkNbx8XX2zYN3xKLEvsnUwg7UyNWGK3-TcrTeFvJxwoA_=w1366-h576-rw"} /> */}
                     <CarouselItem
                         img={"https://lh3.google.com/u/0/d/1qYNAC6ELmgY6IzsSCeqabDW6rQVF0Tl5=w1366-h625-iv1"}
                         title="Responsive Web Design"
                         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                        />
+                    />
+                    <CarouselItem
+                        img={"https://lh3.google.com/u/0/d/1IMf8g-6n64e-juQW9UXvbjd1x6NWUxEH=w1366-h625-iv1"}
+                        title="JS / Algorithms / Data Structures"
+                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    />
                 </Carousel>
             </DescriptionBox>
 
