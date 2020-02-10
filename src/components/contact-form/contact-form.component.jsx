@@ -23,7 +23,7 @@ const ContactForm = ({lang, lang_tag}) => {
     }
 
     return(
-        <div className="contactForm">
+        <div className="contact-form">
             <div className="row">
             <FormInput name="first_name" type="text" placeholder={lang.name} value={formData.first_name} handleChange={handleChange} />
             <FormInput name="email" type="email" placeholder={lang.email} value={formData.email} handleChange={handleChange} />

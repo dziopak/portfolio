@@ -1,0 +1,38 @@
+.portfolio-item-page {
+    &__col {
+        margin-bottom: 80px; 
+
+        &--left {
+            padding-right: 10%;
+        }
+    }
+
+    &__intro {
+        margin-bottom: 10px;
+    }
+    
+    &__testimonial {
+        &-author {
+            color: #321b4d;
+            display: block;
+            margin-bottom: 5px;
+        }
+    }
+
+    &__tags {
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-top: 0px;
+    }
+
+    &__tag {
+        &::after {
+            content: ", ";
+        }
+        
+        &:last-child::after {
+            content: unset;
+        }
+    }
+
+}

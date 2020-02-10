@@ -55,7 +55,7 @@ const PortfolioHome = ({lang, lang_tag}) => {
     return (
         <div className="portfolio portfolio--home section">
             <h3 className="portfolio__header animate-opacity animate-opacity--inactive">{lang.title_home}</h3>
-            <p className="spacer portfolio__text text-short animate-opacity animate-opacity--inactive">{lang.content}</p>
+            <p className="spacer portfolio__text text-short animate-opacity animate-opacity--inactive">{lang.content_home}</p>
             <div className="animate-opacity animate-opacity--inactive">
 
             <FiltersBar filter={folioData.filterType} setFilter={setFilter} />

@@ -95,7 +95,7 @@ const Hero = ({lang, lang_tag}) => {
     const settings = {
         dots: false,
         infinite: true,
-        speed: 300,
+        speed: 1000,
         slidesToShow: 1,
         autoplay: true,
         centerMode: false,
@@ -123,7 +123,7 @@ const Hero = ({lang, lang_tag}) => {
                     <img data-slide="2" alt="hero" className="hero__img hero__slide" src={HeroImg2} />
                     <div data-slide="2" className="hero__content hero__slide">
                         <h2 className="hero__header">Nowy biznes?</h2>
-                        <p className="hero__text">Zadbaj o swój wizerunek w siecii! Profesjonalna strona internetowa jest niezbędna by wybić się na współczesnym rynku. Zadbaj o swój wizerunek w siecii i przyspiesz swój start!</p>
+                        <p className="hero__text">Zadbaj o swój wizerunek w sieci! Profesjonalna strona internetowa jest niezbędna by wybić się na współczesnym rynku. Zadbaj o swój wizerunek w siecii i przyspiesz swój start!</p>
                         <Button url="/" text={lang.button1} modifier="bordered" />
                         <Button url="/" text={lang.button2} modifier="pink"/>
                     </div>

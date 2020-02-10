@@ -20,8 +20,10 @@ import "./layout.styles.scss";
 const HomePage = lazy(() => import("./../../views/home/home.component"));
 const AboutMePage = lazy(() => import("./../../views/about/about.component"));
 const PortfolioPage = lazy(() => import("./../../views/portfolio/portfolio.component"));
+const PortfolioItemPage = lazy(() => import("./../../views/portfolio-item/portfolio-item.component"));
 const ServicesPage = lazy(() => import("./../../views/services/services.component"));
 const BlogPage = lazy(() => import("./../../views/blog/blog.component"));
+const ContactPage = lazy(() => import("./../../views/contact/contact.component"));
 
 const Layout = ({match}) => {
     let langData = {
@@ -50,8 +52,10 @@ const Layout = ({match}) => {
                         <Route path={`${path}`} exact component={HomePage} />
                         <Route path={`${path}${lang.routes.aboutMe}`} exact component={AboutMePage} />
                         <Route path={`${path}${lang.routes.portfolio}`} exact component={PortfolioPage} />
+                        <Route path={`${path}${lang.routes.portfolio}/${lang.routes.project}/:project`} exact component={PortfolioItemPage} />
                         <Route path={`${path}${lang.routes.services}`} exact component={ServicesPage} />
                         <Route path={`${path}${lang.routes.blog}`} component={BlogPage} />
+                        <Route path={`${path}${lang.routes.contact}`} exact component={ContactPage} />
                     </Switch>
                 </div>
                 <Testimonials/>

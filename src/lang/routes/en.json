@@ -3,5 +3,6 @@
   "services": "services",
   "portfolio": "portfolio",
   "blog": "blog",
-  "contact": "contact"
+  "contact": "contact",
+  "project": "project"
 }

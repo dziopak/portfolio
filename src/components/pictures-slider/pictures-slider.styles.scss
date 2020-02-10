@@ -1,0 +1,26 @@
+.pictures-slider {
+    .slick-next {
+        right: 0px;
+    }
+    .slick-prev {
+        left: 0px;
+    }
+    .slick-arrow {
+        z-index: 1;
+        padding: 25px 15px;
+        background:rgba(255, 255, 255, 0.5);
+    }
+    .slick-arrow:before {
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        color: #000;
+        font-weight: 900;
+    }
+    .slick-next:before, [dir=rtl] .slick-prev:before {
+        content: ">";
+    }
+    .slick-prev:before {
+        content: "<";
+    }
+}

@@ -1,9 +1,15 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, useParams } from "react-router-dom";
 
 const NavItem = ({url, text, mainClass, classes, handleClick}) => {
+    const {lang} = useParams();
+    const {pathname} = window.location;
+    const currentUrl = pathname.split("/")[2];
+    let pageUrl = url.split(lang+"/");
+    if (pageUrl.length > 0) pageUrl = pageUrl[1];
+    
     return (
-        <li onClick={handleClick} className={`${mainClass} ${classes} ${window.location.pathname === url || window.location.pathname === url+"/" ? `${mainClass}--active` : ""}`}>
+        <li onClick={handleClick} className={`${mainClass} ${classes} ${currentUrl === pageUrl ? `${mainClass}--active` : ""}`}>
             <Link to={url}>{text}</Link>
         </li>
     );

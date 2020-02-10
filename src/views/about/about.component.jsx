@@ -50,7 +50,12 @@ const AboutMePage = ({match, history, lang, lang_tag}) => {
                         img={"https://udemy-certificate.s3.amazonaws.com/image/UC-Y7BES3OG.jpg?l=en_US"}
                         title="Web Design / Photoshop"
                         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                        />
+                    />
+                    <CarouselItem
+                        img={"https://udemy-certificate.s3.amazonaws.com/image/UC-79b15f4f-c6ae-4bc3-9e08-5ebd4f0b9510.jpg?l=null"}
+                        title="Adobe Illustrator"
+                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    />
                     <CarouselItem
                         img={"https://lh3.google.com/u/0/d/1qYNAC6ELmgY6IzsSCeqabDW6rQVF0Tl5=w1366-h625-iv1"}
                         title="Responsive Web Design"

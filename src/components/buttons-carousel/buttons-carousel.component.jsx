@@ -15,9 +15,23 @@ const ButtonsCarousel = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 6,
-        // slidesToScroll: 3,
         autoplay: true,
-        centerMode: true
+        centerMode: true,
+        responsive: [
+            {
+              breakpoint: 560,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 800,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1
+              }
+            }
+        ]
     };
 
     return (

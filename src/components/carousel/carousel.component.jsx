@@ -13,7 +13,21 @@ const Carousel = ({children}) => {
         slidesToShow: 3,
         autoplay: true,
         centerMode: false,
-        arrows: false
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
     };
     
     return(

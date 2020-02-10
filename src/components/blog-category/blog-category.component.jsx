@@ -16,7 +16,6 @@ const BlogCategory = ({blogState, match, lang, lang_tag}) => {
     const fn = async () => {
         const db = firebase.firestore();
         const categoryRef = blogState.categories.filter(el => el.url === match.params.category || el["url_"+lang_tag] === match.params.category)[0];
-        console.log(categoryRef);
         if (categoryRef) {
             const postRef = await db.collection("blog_posts").where("category_list", "array-contains", categoryRef.id).get();
             const posts = [];

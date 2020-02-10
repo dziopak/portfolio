@@ -18,51 +18,66 @@ const useLang = (WrappedComponent, path, type, routeLangs) => {
                 route_pl = import(`./../../lang/routes/pl.json`);
                 route_en = import(`./../../lang/routes/en.json`);
             }
+            if (path) {
+                if (type) {
+                    lang_pl = import(`./../../${type}/${path}/lang/pl.json`);
+                    lang_en = import(`./../../${type}/${path}/lang/en.json`);
+                } else {
+                    lang_pl = import(`./../${path}/lang/pl.json`);
+                    lang_en = import(`./../${path}/lang/en.json`);
+                }
 
-            if (type) {
-                lang_pl = import(`./../../${type}/${path}/lang/pl.json`);
-                lang_en = import(`./../../${type}/${path}/lang/en.json`);
-            } else {
-                lang_pl = import(`./../${path}/lang/pl.json`);
-                lang_en = import(`./../${path}/lang/en.json`);
-            }
-
-            let langData;
-            lang_pl.then((langs_pl) => {
-                lang_en.then((langs_en) => {
-                    langData = {
-                        pl: langs_pl.default,
-                        en: langs_en.default
-                    }
-                    if (routeLangs === true) {
-                        route_pl.then((routes_pl) => {
-                            route_en.then((routes_en) => {
-                                langData = {
-                                    pl: {
-                                        ...langData.pl,
-                                        routes: routes_pl.default
-                                    },
-                                    en: {
-                                        ...langData.en,
-                                        routes: routes_en.default
+                let langData;
+                lang_pl.then((langs_pl) => {
+                    lang_en.then((langs_en) => {
+                        langData = {
+                            pl: langs_pl.default,
+                            en: langs_en.default
+                        }
+                        if (routeLangs === true) {
+                            route_pl.then((routes_pl) => {
+                                route_en.then((routes_en) => {
+                                    langData = {
+                                        pl: {
+                                            ...langData.pl,
+                                            routes: routes_pl.default
+                                        },
+                                        en: {
+                                            ...langData.en,
+                                            routes: routes_en.default
+                                        }
                                     }
-                                }
-                                setLangState({
-                                    ...langState,
-                                    langData
+                                    setLangState({
+                                        ...langState,
+                                        langData
+                                    });
                                 });
                             });
-                        });
-                    } else {
+                        } else {
+                            setLangState({
+                                ...langState,
+                                langData
+                            });
+                        }     
+                    });
+                });
+            } else {
+                lang_pl = import(`./../../lang/routes/pl.json`);
+                lang_en = import(`./../../lang/routes/en.json`);
+                let langData;
+                lang_pl.then((langs_pl) => {
+                    lang_en.then((langs_en) => {
+                        langData = {
+                            pl: langs_pl.default,
+                            en: langs_en.default
+                        };
                         setLangState({
                             ...langState,
                             langData
                         });
-                    }
-                    
-                    
+                    });
                 });
-            });
+            }
         }, []);
         
         if (langState.langData[lang]) {

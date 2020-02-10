@@ -9,7 +9,7 @@ const Button = ({text, type, url, modifier, onClick}) => {
             { type === "submit" ?
                 <button className="button__btn" type="submit">{text}</button>
             :
-            <Link to={url}>
+            <Link to={url || "/"}>
                 <button onClick={onClick} className="button__btn">{text}</button>
             </Link>
             }

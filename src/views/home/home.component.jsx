@@ -19,10 +19,10 @@ const HomePage = ({lang, lang_tag}) => {
         <div className="homepage">
             <div className="container">
                 { lang && lang.introduction ?
-                    <ContentRow contentSide="right" vector={IntroVector} title="Cześć!">
-                        <p>Cześć! Mam na imię Michał i jestem młodym, pełnym pasji web developerem i web designerem. Oferuję kompleksowe usługi w zakresie tworzenia stron i aplikacji internetowych, zaczynając od projektowania graficznego, aż po programowanie Back-End. Aby dowiedzieć się czegoś więcej na temat mojej osoby, przejdź do zakładki "O mnie"!</p>
-                        <Button url={`/${lang_tag}/${lang.routes.blog}`} modifier="purple" text={"Mój blog"} />
-                        <Button url={`/${lang_tag}/${lang.routes.aboutMe}`} modifier="pink" text={"O mnie"} />
+                    <ContentRow contentSide="right" vector={IntroVector} title={lang.introduction.title}>
+                        <p>{lang.introduction.content}</p>
+                        <Button url={`/${lang_tag}/${lang.routes.blog}`} modifier="purple" text={lang.introduction.aboutMe} />
+                        <Button url={`/${lang_tag}/${lang.routes.aboutMe}`} modifier="pink" text={lang.introduction.blog} />
                     </ContentRow>
                     : "" }
                 <hr/>

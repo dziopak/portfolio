@@ -41,7 +41,6 @@ const TopNav = ({lang, lang_tag, history, match}) => {
     }
 
     const toggleNav = () => {
-        // const isActive = document.querySelector(".top-nav__menu").classList.
         document.querySelector(".top-nav__menu").classList.toggle("top-nav__menu--mobile");
         document.querySelector(".top-nav__mobile").classList.toggle("top-nav__mobile--active");
     }
@@ -57,14 +56,12 @@ const TopNav = ({lang, lang_tag, history, match}) => {
                 </div>
                 {lang.home ?
                 <ul className="top-nav__menu">
-                    <NavItem url={`/${lang_tag}`} mainClass="top-nav__menu-item" text={lang.home} />
+                    <NavItem url={`/${lang_tag}/`} mainClass="top-nav__menu-item" text={lang.home} />
                     <NavItem url={`/${lang_tag}/${lang.routes.aboutMe}`} mainClass="top-nav__menu-item" text={lang.aboutMe} />
                     <NavItem url={`/${lang_tag}/${lang.routes.services}`} mainClass="top-nav__menu-item" text={lang.services} />
                     <NavItem url={`/${lang_tag}/${lang.routes.portfolio}`} mainClass="top-nav__menu-item" text={lang.portfolio} />
                     <NavItem url={`/${lang_tag}/${lang.routes.blog}`} mainClass="top-nav__menu-item" text={lang.blog} />
-                    <li className="top-nav__menu-item">
-                        <Link to="/">{lang.contact}</Link>
-                    </li>
+                    <NavItem url={`/${lang_tag}/${lang.routes.contact}`} mainClass="top-nav__menu-item" text={lang.contact} />
                     <li className="top-nav__lang-switcher">
                         <LangSwitcher />
                     </li>
