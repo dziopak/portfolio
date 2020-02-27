@@ -1,47 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
-import firebase from "./../../utils/firebase.js";
 import BlogItem from "./../blog-item/blog-item.component";
 import BlogSidebar from "./../blog-sidebar/blog-sidebar.component";
 import useLang from "./../useLang/useLang.component";
 
 import "./blog-category.styles.scss";
 
-const BlogCategory = ({blogState, match, lang, lang_tag}) => {
+const BlogCategory = ({match, lang, lang_tag, trans, items, category}) => {
     lang = lang[lang_tag];
-    
-    const [items, setItems] = useState();
-
-    const fn = async () => {
-        const db = firebase.firestore();
-        const categoryRef = blogState.categories.filter(el => el.url === match.params.category || el["url_"+lang_tag] === match.params.category)[0];
-        if (categoryRef) {
-            const postRef = await db.collection("blog_posts").where("category_list", "array-contains", categoryRef.id).get();
-            const posts = [];
-            postRef.forEach((el) => 
-                posts.push(el.data())
-            );
-            setItems(posts);
-        }
-    };
-
-    useEffect(() => {
-        fn();
-    },[blogState, match.params.category]);
 
     return(
         <div className="blog-category">
-            <BlogSidebar categories={blogState.categories}/>
+            <BlogSidebar />
             <div className="blog-category__main">
-                {blogState ? 
-                    items && items.length > 0 ?
-                        items.map((data, index) => <BlogItem key={index} data={data} />)
-                    : <p>No posts in this category yet.</p> 
+                { category ?
+                    <div>
+                        <h3>{lang.category} {category[trans('name')]}</h3>
+                        <p>{category[trans('description')]}</p>
+                        {
+                            items && items.length > 0 ? 
+                                items.map((data, index) => <BlogItem key={index} data={data} />)
+                            : <small>{lang.noPosts}</small> 
+                        }
+                    </div>
                 : "" }
             </div>
         </div>
     );
 }
 
-export default withRouter(useLang(BlogCategory, "blog-category"));
+const mapStateToProps = (state, ownProps) => ({
+    items: state.blog.posts.filter(el => el.category[ownProps.trans('slug')] === ownProps.match.params.category),
+    category: state.blog.categories.find(el => el[ownProps.trans('slug')] === ownProps.match.params.category)
+});
+
+export default withRouter(useLang(connect(mapStateToProps)(BlogCategory), "blog-category"));

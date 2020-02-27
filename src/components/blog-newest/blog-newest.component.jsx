@@ -1,26 +1,20 @@
-import React, {useState, useEffect} from "react";
-import firebase from './../../utils/firebase.js';
+import React, {useEffect} from "react";
+import { connect } from "react-redux";
+
+
+import { postsFetch } from "./../../redux/blog/blog.actions";
+import { dynamicSort } from './../../utils/functions.js';
 
 import BlogItem from "./../blog-item/blog-item.component";
 
 import "./blog-newest.styles.scss";
 
-const BlogNewest = () => {
-    const [items, setItems] = useState();
+const BlogNewest = ({items, postsFetch}) => {
 
     useEffect(() => {
-        const db = firebase.firestore();
-        const fn = async () => {
-            const itemsRef = await db.collection("blog_posts").orderBy("date").limit(3).get();
-            const newState = [];
-            itemsRef.forEach((doc) => {
-                newState.push(doc.data());
-            });
-            setItems(newState);
-        };
-        fn();
-    },["*"]);
-    
+        postsFetch();
+    }, ["*"]);
+
     return(
         <div className="blog-newest section">
             <div className="blog-newest__container container row">
@@ -36,4 +30,12 @@ const BlogNewest = () => {
     );
 }
 
-export default BlogNewest;
+const mapDispatchToProps = ( dispatch ) => ({
+    postsFetch: () => dispatch(postsFetch())
+});
+
+const mapStateToProps = (state) => ({
+    items: state.blog.posts.sort(dynamicSort("-created_at")).slice(0, 3)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BlogNewest);

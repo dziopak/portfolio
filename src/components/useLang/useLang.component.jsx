@@ -8,6 +8,14 @@ const useLang = (WrappedComponent, path, type, routeLangs) => {
             langData: {}
         });
 
+        const trans = (varName) => {
+            if (lang !== "en") {
+                return varName+'_'+lang;
+            } else {
+                return varName;
+            }
+        }
+
         useEffect(() => {
             let lang_pl;
             let lang_en;
@@ -81,9 +89,9 @@ const useLang = (WrappedComponent, path, type, routeLangs) => {
         }, []);
         
         if (langState.langData[lang]) {
-            return <WrappedComponent lang={langState.langData} lang_tag={lang} {...loadingProps} />
+            return <WrappedComponent lang={langState.langData} lang_tag={lang} trans={trans} {...loadingProps} />
         } else {
-            return <WrappedComponent lang={{pl: {}, en: {}}} lang_tag={lang} {...loadingProps} />
+            return <WrappedComponent lang={{pl: {}, en: {}}} lang_tag={lang} trans={trans} {...loadingProps} />
         }
     }
         

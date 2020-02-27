@@ -1,51 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { Link } from "react-router-dom";
-import { formatDate } from "./../../utils/functions.js";
+import { connect } from "react-redux";
 
 import useLang from "./../useLang/useLang.component";
-import firebase from './../../utils/firebase.js';
 
 import "./blog-entry.styles.scss";
 
-const BlogEntry = ({match, lang, lang_tag}) => {
+const BlogEntry = ({match, lang, lang_tag, trans, postData}) => {
     lang = lang[lang_tag];
-    const { postUrl } = match.params;
-    const [postData, setPostData] = useState();
-
+    
     useEffect(() => {
-        const db = firebase.firestore();
-        const fn = async () => {
-            const postRef = await db.collection("blog_posts").where(`url_${lang_tag}`, "==", postUrl).limit(1).get();
-            let newState = postRef.docs[0].data();
-            setPostData(newState);
-        };
-        fn();
+        console.log();
     }, ["*"]);
-
 
     return(
         <div className="blog-entry">
-            { postData && postData.date ?
+            { postData ?
                 <div>
-                    <h3 className="blog-entry__title">{postData['title_'+lang_tag]}</h3>
-                    <span className="blog-item__details">{lang.createdAt} {formatDate(postData.date.toDate())}</span>
-                    <div className="blog-entry__content">
-                        <div dangerouslySetInnerHTML={{__html: postData['content_'+lang_tag]}} />
+                    <h3 className="blog-entry__title">{postData[trans('name')]}</h3>
+                    <span className="blog-item__details">{lang.createdAt} {postData['created_at']}</span>
+                     <div className="blog-entry__content">
+                        <div dangerouslySetInnerHTML={{__html: postData[trans('content')]}} />
                     </div>
-                    <span className="blog-item__details">
-                        <strong className="blog-item__details-bold">{lang.categories}: </strong>
-                        {postData.categories ?
-                            postData.categories.map((el, index) => 
-                                <span key={index}>
-                                    { el.name ?
-                                        <Link to={`/blog/${lang_tag}/${lang.category}/${el.url}`}>{el.name}</Link>
-                                        :
-                                        <Link to={`/blog/${lang_tag}/${lang.category}/${el["url_"+lang_tag]}`}>{el["name_"+lang_tag]}</Link> }
-                                    { (index + 1) !== postData.categories.length ? ", " : "" }
-                                </span>
-                            )
-                        : ""}
-                    </span>
+                    {
+                        postData['category'] ?
+                            <span className="blog-item__details">
+                                <strong className="blog-item__details-bold">{lang.categories}: </strong>
+                                <Link to={`/blog/${lang_tag}/${lang.category}/${postData['category']['slug']}`}>{postData.category.name}</Link>
+                            </span>
+                        : ""
+                    }
                 </div>
             :
                 ""
@@ -54,4 +38,8 @@ const BlogEntry = ({match, lang, lang_tag}) => {
     );
 }
 
-export default useLang(BlogEntry, "blog-entry");
+const mapStateToProps = (state, ownProps) => ({
+    postData: state.blog.posts.find(el => el[ownProps.trans('slug')] === ownProps.match.params.postUrl)
+});
+
+export default useLang(connect(mapStateToProps)(BlogEntry), "blog-entry");

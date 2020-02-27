@@ -1,5 +1,7 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect} from "react";
 import {Switch, Route, useParams} from "react-router-dom";
+import { connect } from "react-redux";
+import { setLangTag } from "../../redux/app/app.actions";
 
 import TopNav from "./../top-nav/top-nav.component";
 import Hero from "./../hero/hero.component";
@@ -25,7 +27,13 @@ const ServicesPage = lazy(() => import("./../../views/services/services.componen
 const BlogPage = lazy(() => import("./../../views/blog/blog.component"));
 const ContactPage = lazy(() => import("./../../views/contact/contact.component"));
 
-const Layout = ({match}) => {
+const Layout = ({match, setLangTag}) => {
+    let {lang} = useParams();
+    
+    useEffect(() => {
+      setLangTag(lang);
+    }, ["*"]);
+    
     let langData = {
         pl: {
             ...pl,
@@ -36,7 +44,7 @@ const Layout = ({match}) => {
             routes: route_en
         }
     }
-    let {lang} = useParams();
+    
     const { path } = match;
 
     lang = langData[lang];
@@ -68,4 +76,7 @@ const Layout = ({match}) => {
     );
 }
 
-export default Layout;
+const mapDispatchToProps = (dispatch) => ({
+    setLangTag: langTag => dispatch(setLangTag(langTag))
+});
+export default connect(null, mapDispatchToProps)(Layout);

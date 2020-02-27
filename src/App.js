@@ -1,12 +1,16 @@
 import React, {Suspense} from 'react';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import './App.scss';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
 import Layout from './components/layout/layout.component';
 import Loading from './components/loading/loading.component';
 
-function App() {
+import './App.scss';
+
+
+
+const App = () => {
+  
   return (
       <Router>
         <div className="App">
@@ -22,5 +26,7 @@ function App() {
       </Router>
   );
 }
+
+
 
 export default App;

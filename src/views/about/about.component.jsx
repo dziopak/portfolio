@@ -12,7 +12,6 @@ import MobileVector from "./../../assets/vectors/mobile.svg"
 import GoalsVector from "./../../assets/vectors/about-me-goals.svg";
 import SnakeVector from "./../../assets/vectors/snake.svg";
 
-import WhoAmI from "../../components/content/who-am-i/who-am-i.component";
 import "./about.styles.scss";
 
 const AboutMePage = ({match, history, lang, lang_tag}) => {
@@ -21,7 +20,12 @@ const AboutMePage = ({match, history, lang, lang_tag}) => {
         <div className="about-page">
             <div className="container">
                 <AboutMe />       
-                <WhoAmI />
+                <DescriptionBox>
+                <h3 className="description-box__title description-box__title--centered">Kim jestem?</h3>
+                <p className="description-box__text text-short">
+                    Mam 25 lat i urodziłem się w Rzeszowie. Jestem freelancerem zajmującym się głównie programowaniem Front-End. Oferuję jednak kompleksowe usługi w zakresie tworzenia stron internetowych - począwszy od projektowania graficznego, tworzenia stron i szablonów WordPress, pisania wtyczek i rozszereń przeglądarkowych, aż po programowanie Back-End'u.
+                </p>
+                </DescriptionBox>
                 <ContentRow vector={MobileVector} title={lang.howItStarted_title}>
                     <p>{lang.howItStarted_text}</p>
                 </ContentRow>

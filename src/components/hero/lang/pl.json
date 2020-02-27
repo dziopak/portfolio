@@ -1,6 +1,14 @@
 {
-    "title": "Czas ucieka?",
-    "content": "Czy wiesz że przeciętny pracownik biurowy spędza większość swojego czasu na wykonywaniu zbędnej i powtarzalnej pracy? Zwiększ wydajność swojej działalności dzięki odpowiednim narzędziom i aplikacjom!",
-    "button1": "Więcej ciekawostek",
-    "button2": "Czytaj dalej"
+    "slide1": {
+        "title": "Czas ucieka?",
+        "content": "Czy wiesz że przeciętny pracownik biurowy spędza większość swojego czasu na wykonywaniu zbędnej i powtarzalnej pracy? Zwiększ wydajność swojej działalności dzięki odpowiednim narzędziom i aplikacjom!",
+        "button1": "Więcej ciekawostek",
+        "button2": "Czytaj dalej"
+    },
+    "slide2": {
+        "title": "Nowy biznes?",
+        "content": "Wykreujmy razem twój wizerunek w sieci! Profesjonalna strona internetowa jest niezbędna by wybić się na współczesnym rynku. Zadbaj o swój wizerunek w siecii i przyspiesz swój start!",
+        "button1": "Więcej ciekawostek",
+        "button2": "Czytaj dalej"
+    }
 }

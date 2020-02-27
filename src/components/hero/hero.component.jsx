@@ -109,25 +109,30 @@ const Hero = ({lang, lang_tag}) => {
             <div className="hero__cloud" style={{width: `${cloudsCords.cloud2.size * 140}px`, display: (cloudsCords.cloud2.left > -30) ? "block" : "none","top": `${cloudsCords.cloud2.top}%`, "left": `${cloudsCords.cloud2.left}%`}} />
             <div className="hero__cloud hero__cloud--2nd" style={{width: `${cloudsCords.cloud3.size * 140}px`, display: (cloudsCords.cloud3.left > -30) ? "block" : "none","top": `${cloudsCords.cloud3.top}%`, "left": `${cloudsCords.cloud3.left}%`}} />
             <Slider {...settings}>
-                <div>
-                    <img data-slide="1" alt="hero" className="hero__img hero__slide hero__slide--active" src={HeroImg} />
-                    <div data-slide="1" className="hero__content hero__slide hero__slide--active">
-                        <h2 className="hero__header">{lang.title}</h2>
-                        <p className="hero__text">{lang.content}</p>
-                        <Button url="/" text={lang.button1} modifier="bordered" />
-                        <Button url="/" text={lang.button2} modifier="pink"/>
+                { lang.slide1 ?
+                    <div>
+                        <img data-slide="1" alt="hero" className="hero__img hero__slide hero__slide--active" src={HeroImg} />
+                        <div data-slide="1" className="hero__content hero__slide hero__slide--active">
+                            <h2 className="hero__header">{lang.slide1.title}</h2>
+                            <p className="hero__text">{lang.slide1.content}</p>
+                            <Button url="/" text={lang.slide1.button1} modifier="bordered" />
+                            <Button url="/" text={lang.slide1.button2} modifier="pink"/>
+                        </div>
                     </div>
-                </div>
+                : ""}
 
-                <div>
-                    <img data-slide="2" alt="hero" className="hero__img hero__slide" src={HeroImg2} />
-                    <div data-slide="2" className="hero__content hero__slide">
-                        <h2 className="hero__header">Nowy biznes?</h2>
-                        <p className="hero__text">Zadbaj o swój wizerunek w sieci! Profesjonalna strona internetowa jest niezbędna by wybić się na współczesnym rynku. Zadbaj o swój wizerunek w siecii i przyspiesz swój start!</p>
-                        <Button url="/" text={lang.button1} modifier="bordered" />
-                        <Button url="/" text={lang.button2} modifier="pink"/>
+
+                {lang.slide2 ?
+                    <div>
+                        <img data-slide="2" alt="hero" className="hero__img hero__slide" src={HeroImg2} />
+                        <div data-slide="2" className="hero__content hero__slide">
+                            <h2 className="hero__header">{lang.slide2.title}</h2>
+                            <p className="hero__text">{lang.slide2.content}</p>
+                            <Button url="/" text={lang.slide2.button1} modifier="bordered" />
+                            <Button url="/" text={lang.slide2.button2} modifier="pink"/>
+                        </div>
                     </div>
-                </div>
+                : ""}
             </Slider>
         </div>
     );
