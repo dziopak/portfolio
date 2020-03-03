@@ -10,6 +10,14 @@ export const dynamicSort = (property) => {
     }
 }
 
+export const trans = (lang, varName) => {
+    if (lang !== "en") {
+        return varName+'_'+lang;
+    } else {
+        return varName;
+    }
+}
+
 export const formatDate = (date) => {
     var monthNames = [
       "January", "February", "March",

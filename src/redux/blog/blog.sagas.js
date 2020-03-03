@@ -7,7 +7,7 @@ import blogActionTypes from './blog.types';
 
 export function* postsFetchAsync() {
   try {
-    const url = `http://cms.test/api/posts`;
+    const url = `http://dziopak-cms.hol.es/api/posts`;
     const ref = yield axios({
       url,
       method: 'get'
@@ -25,7 +25,7 @@ export function* fetchPostsStart() {
 
 export function* categoriesFetchAsync() {
   try {
-    const url = `http://cms.test/api/postcategories`;
+    const url = `http://dziopak-cms.hol.es/api/postcategories`;
     const ref = yield axios({
       url,
       method: 'get'

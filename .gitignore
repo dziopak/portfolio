@@ -25,3 +25,5 @@ yarn-error.log*
 /src/utils/firebase.js
 src/utils/firebase.js
 /blog_backup
+/build
+.gitignore

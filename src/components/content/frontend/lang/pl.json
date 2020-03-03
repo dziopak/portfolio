@@ -1,5 +1,16 @@
 {
     "title": "Programowanie Front-End",
-    "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam. Voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-    "button": "Czytaj dalej"
+    "button": "Czytaj dalej",
+    "section1": {
+        "title": "Estetyczne i funkcjonalne",
+        "content": "strony internetowe które pozwolą ci zabłysnąć w siecii. Wykonane przy pomocy najnowocześniejszych narzędzi i technologii, a jednocześnie łatwe w obsłudze i edycji treści. Strony które nie tylko spełniają swoje zadanie, ale także będą godnie reprezentować Ciebie i twoją działalność."
+    },
+    "section2": {
+        "title": "Intuicyjne i innowacyjne",
+        "content": "rozwiązania, które pozwolą twoim użytkownikom poczuć się, jakby znali twoją witrynę od zawsze, jednocześnie zaskakując swą oryginalnością."
+    },
+    "section3": {
+        "title": "Nowoczesne i poprawne technicznie",
+        "content": "projekty wykorzystujące sprawdzone i popularne technologie, dzięki czemu zawsze pozostaną otwarte na późniejsze modyfikacje. Swoje prace piszę przy pomocy języków JavaScript i PHP, frameworków takich jak React czy jQuery, a także preprocesorów LESS i SASS."
+    }
 }

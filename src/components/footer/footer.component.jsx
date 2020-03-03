@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { menusFetch } from "./../../redux/menus/menus.actions";
 
 import Logo from "./../../assets/img/logo.png";
 import "./footer.styles.scss";
 
-const Footer = () => {
+const Footer = ({ menu, menusFetch }) => {
+
+    useEffect(() => {
+        menusFetch();
+    }, ["*"]);
+    
+    useEffect(() => {
+        console.log(menu);
+    }, [menu]);
+
     return(
         <div className="footer">
             <div className="container row">
@@ -30,12 +41,12 @@ const Footer = () => {
                 <div className="col footer__column" style={{order: 1}}>
                     <ul className="footer__menu">
                         <li className="footer__menu-title">Services</li>
-                        <li className="footer__menu-item"><Link className="footer__menu-link" to="/">Web & UI Design</Link></li>
-                        <li className="footer__menu-item"><Link className="footer__menu-link" to="/">Front-end development</Link></li>
-                        <li className="footer__menu-item"><Link className="footer__menu-link" to="/">Back-end development</Link></li>
-                        <li className="footer__menu-item"><Link className="footer__menu-link" to="/">Mobile app development</Link></li>
-                        <li className="footer__menu-item"><Link className="footer__menu-link" to="/">Browser extensions</Link></li>
-                        <li className="footer__menu-item"><Link className="footer__menu-link" to="/">Other services</Link></li>
+                        {
+                            menu ? 
+                                menu.items.map(el => 
+                                    <li className="footer__menu-item"><Link className="footer__menu-link" to={el.link}>{el.label}</Link></li>
+                            ) : ""
+                        }
                     </ul>
                 </div>
                 <div className="col footer__column" style={{order: 3}}>
@@ -54,4 +65,12 @@ const Footer = () => {
     );
 }
 
-export default Footer;
+const mapStateToProps = (state) => ({
+    menu: state.menus.menus.find(el => el.name === "Services")
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    menusFetch: () => dispatch(menusFetch()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

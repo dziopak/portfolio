@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -8,10 +8,6 @@ import "./blog-entry.styles.scss";
 
 const BlogEntry = ({match, lang, lang_tag, trans, postData}) => {
     lang = lang[lang_tag];
-    
-    useEffect(() => {
-        console.log();
-    }, ["*"]);
 
     return(
         <div className="blog-entry">

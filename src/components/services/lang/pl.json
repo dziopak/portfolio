@@ -1,4 +1,21 @@
 {
     "title": "Czym się zajmuję?",
-    "content_home": "Moją specjalizacją jest tworzenie serwisów i stron internetowych. Zajmuję się zarówno programowaniem Front-End jak i Back-End'em, tworzeniem wtyczek przeglądarkowych i aplikacji mobilnych, a także projektowaniem graficznym."
+    "contentHome": "Moją specjalizacją jest tworzenie serwisów i stron internetowych. Zajmuję się zarówno programowaniem Front-End jak i Back-End'em, tworzeniem wtyczek przeglądarkowych i aplikacji mobilnych, a także projektowaniem graficznym.",
+    "frontEnd": {
+        "title": "Programowanie Front-End",
+        "content": "Estetyczne i funkcjonalne strony internetowe które pozwolą ci zabłysnąć w siecii. Wykonane przy pomocy najnowocześniejszych narzędzi i technologii, a jednocześnie łatwe w obsłudze i edycji treści. W pełni responsywne i intuicyjne strony które nie tylko spełniają swoje zadanie, ale także będą godnie reprezentować Ciebie i twoją działalność. Zadbaj o swój wizerunek w siecii i przyspiesz rozwój swojej kariery!"
+    },
+    "backEnd": {
+        "title": "Programowanie Back-End",
+        "content": "Estetyczne i funkcjonalne strony internetowe które pozwolą ci zabłysnąć w siecii. Wykonane przy pomocy najnowocześniejszych narzędzi i technologii, a jednocześnie łatwe w obsłudze i edycji treści. W pełni responsywne i intuicyjne strony które nie tylko spełniają swoje zadanie, ale także będą godnie reprezentować Ciebie i twoją działalność. Zadbaj o swój wizerunek w siecii i przyspiesz rozwój swojej kariery!"
+    },
+    "mobileApps": {
+        "title": "Aplikacje mobilne",
+        "content": "Estetyczne i funkcjonalne strony internetowe które pozwolą ci zabłysnąć w siecii. Wykonane przy pomocy najnowocześniejszych narzędzi i technologii, a jednocześnie łatwe w obsłudze i edycji treści. W pełni responsywne i intuicyjne strony które nie tylko spełniają swoje zadanie, ale także będą godnie reprezentować Ciebie i twoją działalność. Zadbaj o swój wizerunek w siecii i przyspiesz rozwój swojej kariery!"
+    },
+    "webDesign": {
+        "title": "Web Design",
+        "content": "Estetyczne i funkcjonalne strony internetowe które pozwolą ci zabłysnąć w siecii. Wykonane przy pomocy najnowocześniejszych narzędzi i technologii, a jednocześnie łatwe w obsłudze i edycji treści. W pełni responsywne i intuicyjne strony które nie tylko spełniają swoje zadanie, ale także będą godnie reprezentować Ciebie i twoją działalność. Zadbaj o swój wizerunek w siecii i przyspiesz rozwój swojej kariery!"
+    },
+    "button": "Czytaj dalej"
 }

@@ -1,5 +1,5 @@
 import React, {lazy, Suspense, useEffect} from "react";
-import {Switch, Route, useParams} from "react-router-dom";
+import { Switch, Route, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { setLangTag } from "../../redux/app/app.actions";
 

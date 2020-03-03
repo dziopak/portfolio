@@ -22,8 +22,8 @@ const BlogItem = ({lang, lang_tag, type, data}) => {
         <div className={`blog-item ${type === "block" ? "blog-item--block col" : "blog-item--main"}`}>
             { data ?
                 <div>
-                    { data['thumbnail'] ?
-                        <img src={'http://cms.test/images/'+data['thumbnail']['path']} width="100" style={{ float: "left", marginRight: "20px" }} alt={data.name} />
+                    { type !== "block" && data['thumbnail'] ?
+                        <img src={'http://dziopak-cms.hol.es/images/'+data['thumbnail']['path']} width="100" style={{ float: "left", marginRight: "20px" }} alt={data.name} />
                     : "" }
                     <h4 className="blog-item__title">{data[trans('name')]}</h4>
                     <span className="blog-item__details">Created at {data['created_at']}</span>

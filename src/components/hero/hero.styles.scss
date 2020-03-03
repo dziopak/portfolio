@@ -16,6 +16,7 @@
         line-height: 36px;
         z-index: 3;
         margin-top: -15px;
+        max-width: 640px;
     }
 
     &__header {
@@ -93,9 +94,13 @@
 
     .hero__content {
         display: block;
-        left: 10%;
-        right: 10%;
+        padding: 10%;
+        right: 0;
+        left: 0;
         text-align: center;
+        background: rgb(50,27,77);
+        background: linear-gradient(180deg, rgba(50,27,77,0.9) 50%, rgba(50,27,77,0) 90%);
+        margin: 0 auto;
     }
 
     .hero__text {

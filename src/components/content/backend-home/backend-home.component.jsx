@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import stock1 from "./../../../assets/img/stock1.jpg";
+import vector from "./../../../assets/vectors/back-end-home.svg";
 import Button from "../../button/button.component";
 
 import pl from "./lang/pl.json";
@@ -16,11 +16,17 @@ const BackendHome = () => {
     langData = undefined;
 
     return (
-        <div className="backend-home">
-                <h3 className="content-tab__sub-title">{lang.title}</h3>
-                <p className="content-tab__text">{lang.content}</p>
-                
-                <Button url="/" text={lang.button} modifier="purple" />
+        <div className="backend-home row">
+            <div className="col">
+                <img className="content-tab__img content-tab__img--bg" src={vector} alt="Back-End" />
+            </div>
+            <div className="col">
+                <div class="valign">
+                    <h3 className="content-tab__sub-title">{lang.title}</h3>
+                    <p className="content-tab__text">{lang.content}</p>
+                    <Button url="/" text={lang.button} modifier="purple" />
+                </div>
+            </div>
         </div>
     );
 }

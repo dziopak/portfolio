@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import BlogItem from "./../blog-item/blog-item.component";
@@ -31,9 +31,11 @@ const BlogCategory = ({match, lang, lang_tag, trans, items, category}) => {
     );
 }
 
-const mapStateToProps = (state, ownProps) => ({
-    items: state.blog.posts.filter(el => el.category[ownProps.trans('slug')] === ownProps.match.params.category),
-    category: state.blog.categories.find(el => el[ownProps.trans('slug')] === ownProps.match.params.category)
-});
+const mapStateToProps = (state, ownProps) => {
+    return({
+        items: state.blog.posts.filter(el => el.category && el.category[ownProps.trans('slug')] === ownProps.match.params.category),
+        category: state.blog.categories.find(el => el[ownProps.trans('slug')] === ownProps.match.params.category)
+    });
+};
 
 export default withRouter(useLang(connect(mapStateToProps)(BlogCategory), "blog-category"));

@@ -3,5 +3,14 @@
         height: 700px;
         margin: 0 0 0 auto;
         display: block;
+        right: 0px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .frontend {
+        &__col + &__col {
+            display: none;
+        }
     }
 }

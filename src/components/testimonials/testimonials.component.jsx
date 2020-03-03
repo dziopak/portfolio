@@ -1,64 +1,63 @@
 import React, {useState, useEffect} from "react";
+import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import firebase from './../../utils/firebase.js';
+
+import { trans } from "./../../utils/functions";
+import { testimonialsFetch } from "./../../redux/testimonials/testimonials.actions";
+
 import "./testimonials.styles.scss";
 
-const Testimonials = () => {
-    const [testimonialsData, setTestimonialsData ] = useState({
-        items: [],
-        testimonialId: "",
-        current: ""
-    });
+const Testimonials = ({ testimonialsFetch, items }) => {
+    const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-    useEffect(() => {   
+    const resizeTestimonial = () => {
         if (document.querySelector(".testimonials__img-container")) {
             const height = document.querySelector(".testimonials__container").offsetHeight;
-            document.querySelector(".testimonials__img-container").style.minHeight = height+"px";   
+            document.querySelector(".testimonials__img-container").style.minHeight = height+"px";
+            
+            if (!document.querySelector(".testimonials__img-container").style.minHeight || document.querySelector(".testimonials__img-container").style.minHeight === "0px") {
+                setTimeout(() => {
+                    resizeTestimonial();
+                }, 1000);
+            }
+
         }
-    }, [testimonialsData]);
+    }
 
     useEffect(() => {
-        const fn = async () => {
-            const db = firebase.firestore();
-            const itemsRef = await db.collection("testimonials").get();
-            const newState = [];
-            
-            itemsRef.forEach((doc) => {
-                newState.push(doc.data());
-            });
-
-            const rand_id = Math.floor(Math.random() * newState.length);
-            const rand = newState[rand_id];
-
-            setTestimonialsData({
-                ...testimonialsData,
-                items: newState,
-                testimonialId: rand_id,
-                current: rand
-            });
-        };
-        fn();
-    }, []);
-
+        var max = items.length;
+        var rand = Math.floor(Math.random() * max);
+        setCurrentTestimonial(rand);  
+        resizeTestimonial();
+    }, [items]);
+    
+    useEffect(() => {
+        testimonialsFetch();
+    }, ["*"]);
+    
     let { lang } = useParams();
 
     return (
         <div className="testimonials">
             {
-                testimonialsData.current ? 
+                items && items[0] ? 
                     <div className="container row">
                         <div className="col">
-                            <div className="testimonials__img-container" style={{background: testimonialsData.current.background}}>
-                                <img className="testimonials__img" src={testimonialsData.current.img} alt="Author" />
+                            <div className="testimonials__img-container" style={{background: items[currentTestimonial].background_color}}>
+                                {
+                                    items[currentTestimonial] && items[currentTestimonial].thumbnail ?
+                                        <img className="testimonials__img" src={`http://dziopak-cms.hol.es/images/${items[currentTestimonial].thumbnail.path}`} alt="Author" />
+                                    : ""
+                                }
                             </div>
                         </div>
                         <div className="col">
                             <div className="testimonials__container">
                                 <p className="testimonials__text">
-                                &bdquo;{testimonialsData.current["content_"+lang]}&rdquo;
+                                &bdquo;{items[currentTestimonial][trans(lang, 'content')]}&rdquo;
                                 </p>
-                                <strong className="testimonials__author">{testimonialsData.current.author}</strong><br/>
-                                <small className="testimonials__author-title">{testimonialsData.current["author_title_"+lang]}</small>
+                                <strong className="testimonials__author">{items[currentTestimonial].author}</strong><br/>
+                                <small className="testimonials__author-title">{items[currentTestimonial][trans(lang, "author_title")]}</small>
                             </div>
                         </div>
                     </div>
@@ -68,4 +67,12 @@ const Testimonials = () => {
     );
 }
 
-export default Testimonials;
+const mapStateToProps = (state) => ({
+    items: state.testimonials.items
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    testimonialsFetch: () => dispatch(testimonialsFetch())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Testimonials);

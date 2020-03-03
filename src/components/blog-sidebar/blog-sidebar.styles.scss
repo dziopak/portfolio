@@ -30,3 +30,11 @@
         }
     }
 }
+
+@media(max-width: 880px) {
+    .blog-sidebar {
+        margin-bottom: 80px;
+        width: 100%;
+        flex-basis: 100%; 
+    }
+}
