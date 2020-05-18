@@ -2,7 +2,7 @@ import React, { useEffect, Suspense, lazy } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { postsFetch, categoriesFetch } from "./../../redux/blog/blog.actions";
+import { postsFetch } from "./../../redux/blog/blog.actions";
 import useLang from "./../../components/useLang/useLang.component";
 import Loading from "../../components/loading/loading.component";
 
@@ -21,7 +21,6 @@ const Blog = ({match, lang, lang_tag, postsFetch, categoriesFetch}) => {
     
     useEffect(() => {
         postsFetch();
-        categoriesFetch();
     }, ["*"]);
 
     return (
@@ -46,8 +45,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = ( dispatch ) => ({
-    postsFetch: () => dispatch(postsFetch()),
-    categoriesFetch: () => dispatch(categoriesFetch())
+    postsFetch: () => dispatch(postsFetch())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(useLang(Blog, "blog", "views"));

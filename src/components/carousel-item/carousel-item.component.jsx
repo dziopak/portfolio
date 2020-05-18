@@ -11,9 +11,9 @@ const CarouselItem = ({img, title, children, text}) => {
             </div>
             <div className="carousel-item__content">
                 <h4 className="carousel-item__title">{title}</h4>
-                <p className="carousel-item__text">{text}</p>
+                {/* <p className="carousel-item__text">{text}</p> */}
                 {children}
-                <Button text="Verify me" modifier="purple" />
+                {/* <Button text="Verify me" modifier="purple" /> */}
             </div>
         </div>
     );

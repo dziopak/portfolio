@@ -9,36 +9,9 @@
     overflow: hidden;
 }
 
-.content-tab {
-    &__sub-title {
-        font-size: 22px;
-    }
 
-    &__text {
-        font-size: 14px;
-    }
-
-    &__img {
-        float: left;
-        margin-right: 80px;
-        width: calc(100% - 80px);
-
-        &--bg {
-            padding: 40px;
-            background-color: #321b4d;
-            border-radius: 50%;
-        }
-    }
-}
 
 @media (max-width: 840px) {
-    .content-tab {
-        &__img {
-            width: 100%;
-            margin: 0 0 40px;
-        }
-    }
-
     .content-tab-set {
         padding: 80px 40px;
     }

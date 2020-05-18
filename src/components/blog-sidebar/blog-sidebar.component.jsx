@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { categoriesFetch } from "./../../redux/blog/blog.actions";
 
 import useLang from "./../useLang/useLang.component";
 
 import "./blog-sidebar.styles.scss";
 
-const BlogSidebar = ({match, lang, lang_tag, categories, trans}) => {
+const BlogSidebar = ({match, lang, lang_tag, categories, trans, categoriesFetch}) => {
     lang = lang[lang_tag];
     
+    useEffect(() => {
+        categoriesFetch();
+    }, ['*']);
 
     return(
         <div className="blog-sidebar">
@@ -30,4 +34,8 @@ const mapStateToProps = (state) => ({
     categories: state.blog.categories
 });
 
-export default withRouter(connect(mapStateToProps)(useLang(BlogSidebar, "blog-entry-list")));
+const mapDispatchToProps = (dispatch) => ({
+    categoriesFetch: () => dispatch(categoriesFetch())
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(useLang(BlogSidebar, "blog-entry-list")));

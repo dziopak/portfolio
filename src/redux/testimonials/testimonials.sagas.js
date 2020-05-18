@@ -6,7 +6,7 @@ import testimonialsActionTypes from './testimonials.types';
 
 export function* testimonialsFetchAsync() {
   try {
-    const url = `http://dziopak-cms.hol.es/api/testimonials`;
+    const url = `http://dziopak-cms.hol.es/public/api/testimonials`;
     const ref = yield axios({
       url,
       method: 'get'

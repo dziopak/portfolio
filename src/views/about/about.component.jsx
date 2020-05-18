@@ -42,33 +42,34 @@ const AboutMePage = ({match, history, lang, lang_tag}) => {
                 <Carousel>
                     <CarouselItem
                         img={'https://udemy-certificate.s3.amazonaws.com/image/UC-JPP5A9UP.jpg?l=null'}
-                        title="Advanced JS & CSS"
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        title="JavaScript / CSS"
+                        text="Zaawansowane projekty w CSS i JavaScript: NPM, Webpack, GSAP, Flexbox, CSS Grid, Animacje, RWD."
                         />
                     <CarouselItem
                         img={'https://udemy-certificate.s3.amazonaws.com/image/UC-FMLZGMX3.jpg?l=null'}
                         title="React / Redux"
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        text="Wprowadzenie do programowania przy pomocy frameworka React: Redux / React Hooks / Firebase / GraphQL"
                         />
                     <CarouselItem
                         img={"https://udemy-certificate.s3.amazonaws.com/image/UC-Y7BES3OG.jpg?l=en_US"}
                         title="Web Design / Photoshop"
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        text="Kurs przedstawiający kluczowe koncepty projektowania stron internetowych oraz fundamenty pracy jako freelancer."
                     />
                     <CarouselItem
                         img={"https://udemy-certificate.s3.amazonaws.com/image/UC-79b15f4f-c6ae-4bc3-9e08-5ebd4f0b9510.jpg?l=null"}
                         title="Adobe Illustrator"
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        text="Podstawy pracy z oprogramowaniem do edycji grafiki wektorowej Adobe Illustrator."
                     />
                     <CarouselItem
                         img={"https://lh3.google.com/u/0/d/1qYNAC6ELmgY6IzsSCeqabDW6rQVF0Tl5=w1366-h625-iv1"}
                         title="Responsive Web Design"
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        text="Podstawy tworzenia responsywnych stron internetowych / nowości w HTML5 i CSS3 / Flexbox & CSS Grid."
                     />
                     <CarouselItem
                         img={"https://lh3.google.com/u/0/d/1IMf8g-6n64e-juQW9UXvbjd1x6NWUxEH=w1366-h625-iv1"}
-                        title="JS / Algorithms / Data Structures"
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        title="JavaScript / Algorytmika"
+                        // eslint-disable-next-line no-script-url
+                        text="Javascript: Algorytmy i struktury danych - podstawy JavaScript, wprowadzenie do ES6, wyrażenia regularne."
                     />
                 </Carousel>
             </DescriptionBox>

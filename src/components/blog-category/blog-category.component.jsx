@@ -1,14 +1,16 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
+import { selectCategoryPosts, selectCategory } from "../../redux/blog/blog.selectors";
 import BlogItem from "./../blog-item/blog-item.component";
 import BlogSidebar from "./../blog-sidebar/blog-sidebar.component";
 import useLang from "./../useLang/useLang.component";
 
 import "./blog-category.styles.scss";
 
-const BlogCategory = ({match, lang, lang_tag, trans, items, category}) => {
+const BlogCategory = ({lang, lang_tag, trans, items, category, match}) => {
     lang = lang[lang_tag];
 
     return(
@@ -31,11 +33,9 @@ const BlogCategory = ({match, lang, lang_tag, trans, items, category}) => {
     );
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return({
-        items: state.blog.posts.filter(el => el.category && el.category[ownProps.trans('slug')] === ownProps.match.params.category),
-        category: state.blog.categories.find(el => el[ownProps.trans('slug')] === ownProps.match.params.category)
-    });
-};
+const mapStateToProps = (state, ownProps) => createStructuredSelector({
+    items: selectCategoryPosts(ownProps.match.params.category),
+    category: selectCategory(ownProps.match.params.category)
+});
 
 export default withRouter(useLang(connect(mapStateToProps)(BlogCategory), "blog-category"));

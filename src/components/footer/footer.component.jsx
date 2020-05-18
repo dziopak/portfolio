@@ -43,8 +43,8 @@ const Footer = ({ menu, menusFetch }) => {
                         <li className="footer__menu-title">Services</li>
                         {
                             menu ? 
-                                menu.items.map(el => 
-                                    <li className="footer__menu-item"><Link className="footer__menu-link" to={el.link}>{el.label}</Link></li>
+                                menu.items.map((el, key) => 
+                                    <li key={key} className="footer__menu-item"><Link className="footer__menu-link" to={el.link}>{el.label}</Link></li>
                             ) : ""
                         }
                     </ul>

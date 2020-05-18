@@ -61,3 +61,11 @@
         font-weight: 500;
     }
 }
+
+@media (max-width: 480px) {
+    .blog-item--block {
+        .button {
+            position: static;
+        }
+    }
+}

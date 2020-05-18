@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React, { useEffect} from "react";
+import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { trans } from "./../../utils/functions";
+import { selectRandom } from "../../redux/testimonials/testimonials.selectors";
 import { testimonialsFetch } from "./../../redux/testimonials/testimonials.actions";
+import { trans } from "./../../utils/functions";
 
 import "./testimonials.styles.scss";
 
-const Testimonials = ({ testimonialsFetch, items }) => {
-    const [currentTestimonial, setCurrentTestimonial] = useState(0);
+const Testimonials = ({ testimonialsFetch, testimonial }) => {
 
     const resizeTestimonial = () => {
         if (document.querySelector(".testimonials__img-container")) {
@@ -25,28 +26,27 @@ const Testimonials = ({ testimonialsFetch, items }) => {
     }
 
     useEffect(() => {
-        var max = items.length;
-        var rand = Math.floor(Math.random() * max);
-        setCurrentTestimonial(rand);  
-        resizeTestimonial();
-    }, [items]);
+        if (!testimonial) {
+            testimonialsFetch();
+        }
+    }, ["*"]);
     
     useEffect(() => {
-        testimonialsFetch();
-    }, ["*"]);
+        resizeTestimonial();
+    }, [testimonial]);
     
     let { lang } = useParams();
 
     return (
         <div className="testimonials">
             {
-                items && items[0] ? 
+                testimonial ? 
                     <div className="container row">
                         <div className="col">
-                            <div className="testimonials__img-container" style={{background: items[currentTestimonial].background_color}}>
+                            <div className="testimonials__img-container" style={{background: testimonial.background_color}}>
                                 {
-                                    items[currentTestimonial] && items[currentTestimonial].thumbnail ?
-                                        <img className="testimonials__img" src={`http://dziopak-cms.hol.es/images/${items[currentTestimonial].thumbnail.path}`} alt="Author" />
+                                    testimonial.thumbnail ?
+                                        <img className="testimonials__img" src={`http://dziopak-cms.hol.es/images/${testimonial.thumbnail.path}`} alt="Author" />
                                     : ""
                                 }
                             </div>
@@ -54,10 +54,10 @@ const Testimonials = ({ testimonialsFetch, items }) => {
                         <div className="col">
                             <div className="testimonials__container">
                                 <p className="testimonials__text">
-                                &bdquo;{items[currentTestimonial][trans(lang, 'content')]}&rdquo;
+                                &bdquo;{testimonial[trans(lang, 'content')]}&rdquo;
                                 </p>
-                                <strong className="testimonials__author">{items[currentTestimonial].author}</strong><br/>
-                                <small className="testimonials__author-title">{items[currentTestimonial][trans(lang, "author_title")]}</small>
+                                <strong className="testimonials__author">{testimonial.author}</strong><br/>
+                                <small className="testimonials__author-title">{testimonial[trans(lang, "author_title")]}</small>
                             </div>
                         </div>
                     </div>
@@ -67,8 +67,8 @@ const Testimonials = ({ testimonialsFetch, items }) => {
     );
 }
 
-const mapStateToProps = (state) => ({
-    items: state.testimonials.items
+const mapStateToProps = createStructuredSelector({
+    testimonial: selectRandom
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,22 +1,25 @@
 import React from "react";
-import vector from "./../../../assets/vectors/web-design-home.svg";
-import Button from "./../../button/button.component";
-
-import "./webdesign-home.styles.scss";
-
+import stock1 from "./../../../assets/vectors/services-4.svg";
 
 const WebdesignHome = () => {
+    
     return (
-        <div className="web-design row">
-            <div className="col">
-                <img className="content-tab__img content-tab__img--bg" src={vector} alt="Web Design" />
+        <div className="frontend row">
+            <div className="frontend__col col">
+            <h3 className="content-tab__sub-title">Web Design</h3>
+                <p>
+                    <strong>Schludne i przejrzyste</strong><br/>
+                    <p>projekty graficzne, które nie zdominują treści, lecz ją wyeksponują.</p>
+                </p>
+                
+                <p>
+                    <strong>Szczegółowe i dopracowane,</strong><br/>
+                    z marginesem błędu do jednego piksela. Starannie zachowane marginesy i wcięcia, przemyślana typografia i zachowane standardy UX. Przygotowane w trzech wersjach - komputer, tablet, telefon - co znacząco skróci czas pracy nad responsywnym szablonem. Projekty graficzne które nie tylko przyciągną uwagę klientów, ale także ułatwią pracę developerom.
+                </p>
             </div>
-            <div className="col">
-                <div class="valign">
-                    <h3 className="content-tab__sub-title">Web Design</h3>
-                    <p className="content-tab__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam. Voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                    <Button url="/" text="Czytaj dalej" modifier="purple" />
-                </div>
+
+            <div className="frontend__col col">
+                <img className="frontend__img" src={stock1} alt="Front-End" />
             </div>
         </div>
     );

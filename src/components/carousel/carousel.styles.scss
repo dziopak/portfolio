@@ -1,0 +1,14 @@
+.carousel {
+    .slick-track {
+        display: flex;
+    }
+
+    .slick-slide {
+        display: flex;
+        align-self: stretch;
+
+        div:first-child {
+            width: calc(100% - 30px);
+        }
+    }
+}

@@ -1,12 +1,10 @@
 .content-row {
     display: flex;
+    align-items: center;
     width: 100%;
     margin-bottom: 100px;
 
     &__col {
-        &--left {
-        }
-
         &--right {
             .content-row__img {
                 margin-left: 15%;
@@ -23,24 +21,8 @@
     }
 }
 
-@media (max-width: 1080px) {
-    .content-row {
-        &__container {
-            position: static;
-            transform: none;
-        }
-    
-        &__img {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-    }
-}
-
 @media (max-width: 840px) {
     .content-row {
-        // display: block;
         flex-wrap: wrap;
 
         &__col {

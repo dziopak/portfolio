@@ -1,5 +1,6 @@
 {
     "categories": "categories",
     "category": "category",
-    "button": "Read more"
+    "button": "Read more",
+    "created_at": "Created at"
 }

@@ -1,30 +1,30 @@
 import React, {useEffect} from "react";
 import { connect } from "react-redux";
-
+import { createStructuredSelector } from "reselect";
 
 import { postsFetch } from "./../../redux/blog/blog.actions";
-import { dynamicSort } from './../../utils/functions.js';
+import { selectNewestPosts } from "./../../redux/blog/blog.selectors";
 
 import BlogItem from "./../blog-item/blog-item.component";
 
 import "./blog-newest.styles.scss";
 
-const BlogNewest = ({items, postsFetch}) => {
+const BlogNewest = ({posts, postsFetch}) => {
 
     useEffect(() => {
-        postsFetch();
+        if (!posts || posts.length < 3) {
+            postsFetch();
+        }
     }, ["*"]);
 
     return(
         <div className="blog-newest section">
             <div className="blog-newest__container container row">
-                {items ?
-                    items.map((el, index) => <BlogItem key={index} data={el} type="block" /> )
+                {posts ?
+                    posts.map((el, index) => <BlogItem key={index} data={el} type="block" /> )
                 :
                     ""
                 }
-                <BlogItem type="block" />
-                <BlogItem type="block" />
             </div>
         </div>
     );
@@ -34,8 +34,8 @@ const mapDispatchToProps = ( dispatch ) => ({
     postsFetch: () => dispatch(postsFetch())
 });
 
-const mapStateToProps = (state) => ({
-    items: state.blog.posts.sort(dynamicSort("-created_at")).slice(0, 3)
+const mapStateToProps = createStructuredSelector({
+    posts: selectNewestPosts
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlogNewest);

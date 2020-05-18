@@ -15,7 +15,7 @@ const ContentRow = ({contentSide, title, vector, children, images, imagesPath}) 
             : "" }
 
             <div className="col content-row__col">
-                <div className="content-row__container valign">
+                <div className="content-row__container">
                     <h3 className="content-row__title">{title}</h3>
                     {children}
                 </div>
